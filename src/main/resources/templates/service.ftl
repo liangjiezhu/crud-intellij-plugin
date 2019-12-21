@@ -30,7 +30,7 @@ public interface ${simpleName} {
     /**
      * 通过属性查询单个${model.comment}
      *
-     * @param ${model.varName}
+     * @param ${model.varName} ${model.comment}
      * @return {@link ${model.simpleName}}
      */
      ${model.simpleName} findByObj(${model.simpleName} ${model.varName});
@@ -49,7 +49,7 @@ public interface ${simpleName} {
      *
      * @param pageNum   页号
      * @param pageSize 每页大小
-     * @param ${model.varName}
+     * @param ${model.varName} ${model.comment}
      * @return {@link ${model.simpleName}}
      */
      Page<#if ormType==0>Info</#if><${model.simpleName}> queryPage(int pageNum, int pageSize,${model.simpleName} ${model.varName});
@@ -57,7 +57,7 @@ public interface ${simpleName} {
     /**
      * 查询${model.comment}
      *
-     * @param ${model.varName}
+     * @param ${model.varName} ${model.comment}
      * @return {@link ${model.simpleName}}
      */
      List<${model.simpleName}> query(${model.simpleName} ${model.varName});

@@ -24,7 +24,6 @@ public interface ${simpleName} {
     /**
      * 通过${model.comment}任意属性查询单个${model.comment}
      *
-     * @param id ID
      * @return {@link ${model.simpleName}}
      */
      ${model.simpleName} findByObj(${model.simpleName} ${model.varName});

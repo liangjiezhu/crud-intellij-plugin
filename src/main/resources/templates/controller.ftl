@@ -49,14 +49,14 @@ public class ${simpleName} {
     }
 
     @GetMapping
-    @ApiOperation("分页查询${model.comment}")
+    @ApiOperation("直接分页查询${model.comment}")
     public Page<#if ormType==0>Info</#if><${model.simpleName}> findByPage(@ApiParam("页号") @RequestParam(defaultValue = "1") Integer pageNum,
                                                 @ApiParam("每页大小") @RequestParam(defaultValue = "10") Integer pageSize) {
         return ${service.varName}.findByPage(pageNum, pageSize);
     }
 
     @PostMapping("/queryPage")
-    @ApiOperation("分页查询${model.comment}")
+    @ApiOperation("通过属性分页查询${model.comment}")
     public Page<#if ormType==0>Info</#if><${model.simpleName}> findByPage(@ApiParam("页号") @RequestParam(defaultValue = "1") Integer pageNum,
                                                 @ApiParam("每页大小") @RequestParam(defaultValue = "10") Integer pageSize,
                                                 @RequestBody ${model.simpleName} ${model.varName}) {
@@ -64,7 +64,7 @@ public class ${simpleName} {
     }
 
     @PostMapping("/query")
-    @ApiOperation("列表查询${model.comment}")
+    @ApiOperation("通过属性列表查询${model.comment}")
     public List<${model.simpleName}> query(@RequestBody ${model.simpleName} ${model.varName}) {
         return ${service.varName}.query(${model.varName});
     }

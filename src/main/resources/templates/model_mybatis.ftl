@@ -16,7 +16,7 @@ public class ${simpleName} {
     /**
     * ${field.comment}
     */
-    @ApiModelProperty(value = "${field.comment}")
+    @ApiModelProperty(value = "${field.comment}", position= ${field_index})
     private ${field.typeSimpleName} ${field.name};
 </#list>
 }
