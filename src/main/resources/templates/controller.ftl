@@ -41,6 +41,12 @@ public class ${simpleName} {
         return ${service.varName}.findById(id);
     }
 
+    @PostMapping("/findByObj")
+    @ApiOperation("通过属性查询单个${model.comment}")
+    public ${model.simpleName} findByObj(@RequestBody ${model.simpleName} ${model.varName}) {
+        return ${service.varName}.findByObj(${model.varName});
+    }
+
     @GetMapping
     @ApiOperation("分页查询${model.comment}")
     public Page<#if ormType==0>Info</#if><${model.simpleName}> findByPage(@ApiParam("页号") @RequestParam(defaultValue = "1") Integer pageNum,
@@ -48,7 +54,21 @@ public class ${simpleName} {
         return ${service.varName}.findByPage(pageNum, pageSize);
     }
 
-    @PostMapping
+    @PostMapping("/queryPage")
+    @ApiOperation("分页查询${model.comment}")
+    public Page<#if ormType==0>Info</#if><${model.simpleName}> findByPage(@ApiParam("页号") @RequestParam(defaultValue = "1") Integer pageNum,
+                                                @ApiParam("每页大小") @RequestParam(defaultValue = "10") Integer pageSize,
+                                                @RequestBody ${model.simpleName} ${model.varName}) {
+        return ${service.varName}.queryPage(pageNum, pageSize,${model.varName});
+    }
+
+    @PostMapping("/query")
+    @ApiOperation("列表查询${model.comment}")
+    public List<${model.simpleName}> query(@RequestBody ${model.simpleName} ${model.varName}) {
+        return ${service.varName}.query(${model.varName});
+    }
+
+    @PostMapping("/add")
     @ApiOperation("新增${model.comment}")
     public void insert(@RequestBody ${model.simpleName} ${model.varName}) {
         ${service.varName}.insert(${model.varName});

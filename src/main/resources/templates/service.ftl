@@ -25,6 +25,15 @@ public interface ${simpleName} {
      */
      ${model.simpleName} findById(${field.typeSimpleName} id);
 
+
+    /**
+     * 通过属性查询单个${model.comment}
+     *
+     * @param ${model.varName}
+     * @return {@link ${model.simpleName}}
+     */
+     ${model.simpleName} findByObj(${model.simpleName} ${model.varName});
+
     /**
      * 分页查询${model.comment}
      *
@@ -33,6 +42,24 @@ public interface ${simpleName} {
      * @return {@link ${model.simpleName}}
      */
      Page<#if ormType==0>Info</#if><${model.simpleName}> findByPage(int pageNum, int pageSize);
+
+    /**
+     * 分页查询${model.comment}
+     *
+     * @param pageNum   页号
+     * @param pageSize 每页大小
+     * @param ${model.varName}
+     * @return {@link ${model.simpleName}}
+     */
+     Page<#if ormType==0>Info</#if><${model.simpleName}> queryPage(int pageNum, int pageSize,${model.simpleName} ${model.varName});
+
+    /**
+     * 查询${model.comment}
+     *
+     * @param ${model.varName}
+     * @return {@link ${model.simpleName}}
+     */
+     List<${model.simpleName}> query(${model.simpleName} ${model.varName});
 
     /**
      * 新增${model.comment}

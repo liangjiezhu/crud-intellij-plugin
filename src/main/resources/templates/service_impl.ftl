@@ -36,6 +36,12 @@ public class ${simpleName}Impl implements ${simpleName}{
 
     @Transactional(readOnly = true)
     @Override
+    public ${model.simpleName} findByObj(${model.simpleName} ${model.varName}){
+        return ${dao.varName}.findByObj(${model.varName});
+    }
+
+    @Transactional(readOnly = true)
+    @Override
     <#if ormType==0>
     public PageInfo<${model.simpleName}> findByPage(int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
@@ -46,6 +52,20 @@ public class ${simpleName}Impl implements ${simpleName}{
         return ${dao.varName}.findAll(PageRequest.of(pageNum, pageSize));
     }
     </#if>
+
+    @Transactional(readOnly = true)
+    @Override
+    public PageInfo<${model.simpleName}> queryPage(int pageNum, int pageSize,${model.simpleName} ${model.varName}) {
+        PageHelper.startPage(pageNum, pageSize);
+        return PageInfo.of(${dao.varName}.queryPage(${model.varName}));
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<${model.simpleName}> query(${model.simpleName} ${model.varName}) {
+        return PageInfo.of(${dao.varName}.query(${model.varName}));
+    }
+
 
     @Override
     public void insert(${model.simpleName} ${model.varName}){
