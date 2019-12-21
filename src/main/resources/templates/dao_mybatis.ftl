@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 <#list imports as import>
     import ${import};
 </#list>
+import java.util.List;
 
 /**
  * ${comment}

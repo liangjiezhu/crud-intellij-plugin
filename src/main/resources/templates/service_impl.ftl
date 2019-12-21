@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 <#list imports as import>
     import ${import};
 </#list>
+import java.util.List;
 
 @Service
 @Transactional(rollbackFor = Exception.class)
@@ -63,14 +64,14 @@ public class ${simpleName}Impl implements ${simpleName}{
     @Transactional(readOnly = true)
     @Override
     public List<${model.simpleName}> query(${model.simpleName} ${model.varName}) {
-        return PageInfo.of(${dao.varName}.query(${model.varName}));
+        return ${dao.varName}.query(${model.varName});
     }
 
 
     @Override
     public void insert(${model.simpleName} ${model.varName}){
         <#if ormType==0>
-        ${dao.varName}.insert(${model.varName});
+        ${dao.varName}.insertSelective(${model.varName});
         <#else >
         ${dao.varName}.save(${model.varName});
         </#if>
@@ -79,7 +80,7 @@ public class ${simpleName}Impl implements ${simpleName}{
     @Override
     public void update(${model.simpleName} ${model.varName}){
         <#if ormType==0>
-        ${dao.varName}.update(${model.varName});
+        ${dao.varName}.updateSelective(${model.varName});
         <#else >
         ${dao.varName}.save(${model.varName});
         </#if>

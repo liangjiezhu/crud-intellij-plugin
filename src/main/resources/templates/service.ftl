@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 <#list imports as import>
     import ${import};
 </#list>
+import java.util.List;
 
 /**
  * ${comment}

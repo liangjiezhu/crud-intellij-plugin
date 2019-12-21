@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 <#list imports as import>
     import ${import};
 </#list>
+import java.util.List;
 
 <#assign model=service.dao.model />
 <#list model.fields as field>

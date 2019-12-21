@@ -48,7 +48,7 @@
     </select>
 
     <!--通过${model.comment}任意属性查询${model.comment}-->
-    <select id="query" resultMap="${model.varName}Map" parameterType="${model.name}>
+    <select id="query" resultMap="${model.varName}Map" parameterType="${model.name}">
         SELECT <include refid="Base_Column_List"/>
         FROM ${model.tableName}
         <where>
@@ -56,7 +56,7 @@
         </where>
     </select>
     <!--通过${model.comment}任意属性分页查询${model.comment}-->
-    <select id="queryPage" resultMap="${model.varName}Map" parameterType="${model.name}>
+    <select id="queryPage" resultMap="${model.varName}Map" parameterType="${model.name}">
         SELECT <include refid="Base_Column_List"/>
         FROM ${model.tableName}
         <where>
